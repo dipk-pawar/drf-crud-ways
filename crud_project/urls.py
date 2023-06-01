@@ -19,6 +19,7 @@ from django.urls import path
 from apps.crud1_using_api_decorator import views as way1
 from apps.crud2_using_APIView import views as way2
 from apps.crud3_using_genetic_api_vew_and_mixins import views as way3
+from apps.crud4_using_concrete_views import views as way4
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -28,4 +29,6 @@ urlpatterns = [
     path("way2_studentapi/<int:pk>/", way2.StudentAPI.as_view()),
     path("way3_studentapi/", way3.ListandCreateStudentAPI.as_view()),
     path("way3_studentapi/<int:pk>/", way3.ReadUpdateDeleteStudentAPI.as_view()),
+    path("way4_studentapi/", way4.StudentListCreate.as_view()),
+    path("way4_studentapi/<int:pk>/", way4.StudentRetrieveUpdateDestroy.as_view()),
 ]
