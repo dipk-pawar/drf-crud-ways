@@ -5,10 +5,10 @@ from .serializers import StudentSerializer
 
 
 # Create your views here.
-@api_view(["GET", "POST", "PUT", "DELETE"])
-def student_api(request):
+@api_view(["GET", "POST", "PUT", "PATCH", "DELETE"])
+def student_api(request, pk=None):
+    _id = pk
     if request.method == "GET":
-        _id = request.data.get("id")
         if _id is not None:
             try:
                 stu = Student.objects.get(id=_id)
@@ -29,16 +29,22 @@ def student_api(request):
         return Response(serializer.errors)
 
     if request.method == "PUT":
-        _id = request.data.get("id")
         stu = Student.objects.get(pk=_id)
-        serializer = StudentSerializer(stu, data=request.data, partial=True)
+        serializer = StudentSerializer(stu, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response({"msg": "Data Updated"})
         return Response(serializer.errors)
 
+    if request.method == "PATCH":
+        stu = Student.objects.get(pk=_id)
+        serializer = StudentSerializer(stu, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"msg": "Partial Data Updated"})
+        return Response(serializer.errors)
+
     if request.method == "DELETE":
-        _id = request.data.get("id")
         stu = Student.objects.get(pk=_id)
         stu.delete()
         return Response({"msg": "Data Deleted"})
