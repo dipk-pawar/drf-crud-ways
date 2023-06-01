@@ -23,6 +23,7 @@ from apps.crud3_using_genetic_api_vew_and_mixins import views as way3
 from apps.crud4_using_concrete_views import views as way4
 from apps.crud5_using_viewsets import views as way5
 from apps.crud6_using_model_viewsets import views as way6
+from apps.crud7_using_serializers import views as way7
 
 # Creating Router Object
 router = DefaultRouter()
@@ -42,5 +43,6 @@ urlpatterns = [
     path("way3_studentapi/<int:pk>/", way3.ReadUpdateDeleteStudentAPI.as_view()),
     path("way4_studentapi/", way4.StudentListCreate.as_view()),
     path("way4_studentapi/<int:pk>/", way4.StudentRetrieveUpdateDestroy.as_view()),
+    path("way7_studentapi/", way7.StudentAPI.as_view()),
     path("", include(router.urls)),
 ]

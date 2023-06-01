@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "apps.crud4_using_concrete_views",
     "apps.crud5_using_viewsets",
     "apps.crud6_using_model_viewsets",
+    "apps.crud7_using_serializers",
 ]
 
 MIDDLEWARE = [
