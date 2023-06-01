@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     "apps.crud2_using_APIView",
     "apps.crud3_using_genetic_api_vew_and_mixins",
     "apps.crud4_using_concrete_views",
+    "apps.crud5_using_viewsets",
+    "apps.crud6_using_model_viewsets",
 ]
 
 MIDDLEWARE = [

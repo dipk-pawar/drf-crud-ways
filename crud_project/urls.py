@@ -16,18 +16,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from apps.crud1_using_api_decorator import views as way1
 from rest_framework.routers import DefaultRouter
+from apps.crud1_using_api_decorator import views as way1
 from apps.crud2_using_APIView import views as way2
 from apps.crud3_using_genetic_api_vew_and_mixins import views as way3
 from apps.crud4_using_concrete_views import views as way4
 from apps.crud5_using_viewsets import views as way5
+from apps.crud6_using_model_viewsets import views as way6
 
 # Creating Router Object
 router = DefaultRouter()
 
 # Register StudentViewSet with Router
-router.register("way5_studentapi", way5.StudentViewSet, basename="student")
+router.register("way5_studentapi", way5.StudentViewSet, basename="student_way5")
+router.register("way6_studentapi", way6.StudentModelViewSet, basename="student_way6")
 
 
 urlpatterns = [

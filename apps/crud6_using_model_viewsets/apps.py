@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class Crud5UsingViewsetsConfig(AppConfig):
+class Crud6UsingModelViewsetsConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
-    name = "apps.crud5_using_viewsets"
+    name = "apps.crud6_using_model_viewsets"
