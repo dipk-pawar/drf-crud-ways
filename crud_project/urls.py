@@ -15,11 +15,20 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from apps.crud1_using_api_decorator import views as way1
+from rest_framework.routers import DefaultRouter
 from apps.crud2_using_APIView import views as way2
 from apps.crud3_using_genetic_api_vew_and_mixins import views as way3
 from apps.crud4_using_concrete_views import views as way4
+from apps.crud5_using_viewsets import views as way5
+
+# Creating Router Object
+router = DefaultRouter()
+
+# Register StudentViewSet with Router
+router.register("way5_studentapi", way5.StudentViewSet, basename="student")
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -31,4 +40,5 @@ urlpatterns = [
     path("way3_studentapi/<int:pk>/", way3.ReadUpdateDeleteStudentAPI.as_view()),
     path("way4_studentapi/", way4.StudentListCreate.as_view()),
     path("way4_studentapi/<int:pk>/", way4.StudentRetrieveUpdateDestroy.as_view()),
+    path("", include(router.urls)),
 ]
