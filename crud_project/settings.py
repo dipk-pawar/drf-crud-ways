@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "apps.crud1_using_api_decorator",
     "apps.crud2_using_APIView",
+    "apps.crud3_using_genetic_api_vew_and_mixins",
 ]
 
 MIDDLEWARE = [
