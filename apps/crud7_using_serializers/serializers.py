@@ -8,10 +8,6 @@ class StudentSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
     def create(self, validated_data):
-        import pdb
-
-        pdb.set_trace()
-        print("--------------------------------------")
         return Student.objects.create(**validated_data)
 
     def update(self, instance, validated_data):
